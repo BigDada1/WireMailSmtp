@@ -996,8 +996,8 @@ class smtp_class
 			{
 				$timeout=($this->data_timeout ? $this->data_timeout : $this->timeout);
 				if($timeout
-				&& function_exists("socket_set_timeout"))
-					socket_set_timeout($this->connection,$timeout,0);
+				&& function_exists("stream_set_timeout"))
+					stream_set_timeout($this->connection, $timeout, 0);
 				if(strlen($this->socks_host_name))
 				{
 					if($this->debug)
@@ -1109,8 +1109,8 @@ class smtp_class
 					$this->OutputDebug('Connected to HTTP proxy host "'.$this->http_proxy_host_name.'".');
 				$timeout=($this->data_timeout ? $this->data_timeout : $this->timeout);
 				if($timeout
-				&& function_exists("socket_set_timeout"))
-					socket_set_timeout($this->connection,$timeout,0);
+				&& function_exists("stream_set_timeout"))
+                    stream_set_timeout($this->connection,$timeout,0);
 				if($this->PutLine('CONNECT '.$domain.':'.$port.' HTTP/1.0')
 				&& $this->PutLine('User-Agent: '.$this->user_agent)
 				&& $this->PutLine(''))
@@ -1462,8 +1462,8 @@ class smtp_class
 		}
 		$timeout=($this->data_timeout ? $this->data_timeout : $this->timeout);
 		if($timeout
-		&& function_exists("socket_set_timeout"))
-			socket_set_timeout($this->connection,$timeout,0);
+		&& function_exists("stream_set_timeout"))
+            stream_set_timeout($this->connection,$timeout,0);
 		if($this->debug)
 			$this->OutputDebug("Connected to SMTP server \"".$domain."\".");
 		if(!strcmp($localhost=$this->localhost,"")

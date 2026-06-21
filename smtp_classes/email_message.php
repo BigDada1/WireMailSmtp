@@ -901,10 +901,8 @@ class email_message_class
 						$body.=$block;
 					}
 					fclose($file);
-					if((GetType($size)=="integer"
-					&& strlen($body)>$size)
-					|| (function_exists("get_magic_quotes_runtime")
-					&& get_magic_quotes_runtime()))
+					if((is_int($size)
+					&& strlen($body)>$size))
 						$body=StripSlashes($body);
 					if(GetType($size)=="integer"
 					&& strlen($body)!=$size)

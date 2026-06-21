@@ -110,7 +110,7 @@ class xoauth2_sasl_client_class
 					}
 					elseif(strlen($oauth->access_token))
 					{
-						$now = gmstrftime('%Y-%m-%d %H:%M:%S', time());
+						$now = gmdate('Y-m-d H:i:s', time());
 						if(strcmp($now, $oauth->access_token_expiry) > 0)
 						{
 							error_log('The OAuth token has expired.');
