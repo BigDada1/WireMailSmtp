@@ -153,7 +153,7 @@ class hnsmtp {
 				break;
 
 			case 'valid_recipients':
-			case 'extra_headers';
+            case 'extra_headers':
 				$this->$k = is_array($v) || is_string($v) ? (array)$v : array();
 				break;
 

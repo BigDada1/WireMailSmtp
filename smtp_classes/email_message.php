@@ -1811,7 +1811,7 @@ class email_message_class
 			return($this->error);
 		switch($this->body_parts)
 		{
-			case 0;
+            case 0:
 				$this->body=$part;
 				break;
 			case 1:
